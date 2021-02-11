@@ -1,0 +1,7 @@
+export const  ADD_PRODUCTS_BASKET = "ADD_PRODUCTS_BASKET";
+export const  REMOVE_PRODUCT_BASKET = "REMOVE_PRODUCT_BASKET";
+export const  CLEAR_BASKET = "CLEAR_BASKET";
+export const  SET_PRODUCTS = "SET_PRODUCTS";
+export const  SET_LOADED = "SET_LOADED";
+export const  SET_CATEGORY = "SET_CATEGORY";
+

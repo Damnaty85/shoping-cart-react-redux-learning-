@@ -1,0 +1,164 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Zipper Side Solid Skater",
+            "image": "//img.ltwebstatic.com/images3_pi/2020/06/18/15924439944a9b77a2bea464c150f278e053791133_thumbnail_405x552.webp",
+            "price": 100,
+            "category": "Skirt",
+            "sizes": ["XS", "S", "M", "L"]
+        },
+        {
+            "id": 2,
+            "name": "Elastic Waist Skater Plaid",
+            "image": "//img.ltwebstatic.com/images3_pi/2020/10/16/16028151284d431f7335065d39214a8b103904c1ca_thumbnail_600x.webp",
+            "price": 160,
+            "category": "Skirt",
+            "sizes": ["XS", "S", "M", "L", "XL"]
+        },
+        {
+            "id": 3,
+            "name": "Solid Fold Pleated Skater",
+            "image": "//img.ltwebstatic.com/images3_pi/2020/07/23/1595470195ee0bbba95c2827f4ea58cc2f611e5424_thumbnail_600x.webp",
+            "price": 140,
+            "category": "Skirt",
+            "sizes": ["XS", "M", "L"]
+        },
+        {
+            "id": 4,
+            "name": "Split Front PU Bodycon",
+            "image": "//img.ltwebstatic.com/images3_pi/2020/11/26/1606379200ea2173d5d642ba464fb3141be9a63287_thumbnail_600x.webp",
+            "price": 170,
+            "category": "Skirt",
+            "sizes": ["XS", "S", "M", "L"]
+        },
+        {
+            "id": 5,
+            "name": "Ruched Drawstring Bodycon",
+            "image": "//img.ltwebstatic.com/images3_pi/2020/09/04/1599199202027df45cc83d729faeffcb956a4582bc_thumbnail_600x.webp",
+            "price": 140,
+            "category": "Dress",
+            "sizes": ["XS", "S", "M", "L"]
+        },
+        {
+            "id": 6,
+            "name": "Joyfunear Ruched Drawstring",
+            "image": "//img.ltwebstatic.com/images3_pi/2020/02/24/15825280309fa11bffe771b2eb09638cfb40487d07_thumbnail_600x.webp",
+            "price": 125,
+            "category": "Dress",
+            "sizes": ["XS", "S", "M"]
+        },
+        {
+            "id": 7,
+            "name": "Solid Drawstring",
+            "image": "//img.ltwebstatic.com/images3_pi/2020/04/27/15879573523e974978650c97c6d4de849b406bbcef_thumbnail_600x.webp",
+            "price": 155,
+            "category": "Dress",
+            "sizes": ["S", "M"]
+        },
+        {
+            "id": 8,
+            "name": "Joyfunear Off Shoulder Drawstring",
+            "image": "//img.ltwebstatic.com/images3_pi/2019/11/22/1574417280a0b21f4be3f660205cacd2c72a0bae13_thumbnail_600x.webp",
+            "price": 195,
+            "category": "Dress",
+            "sizes": ["S", "M", "L", "XL"]
+        },
+        {
+            "id": 9,
+            "name": "Eyelet Embroidered Frill Trim Tie",
+            "image": "//img.ltwebstatic.com/images3_pi/2020/04/30/1588234210e5cf9972e2be8a551a868a56a1fbb70b_thumbnail_600x.webp",
+            "price": 134,
+            "category": "Dress",
+            "sizes": ["S"]
+        },
+        {
+            "id": 10,
+            "name": "Wide Waistband Contrast Binding",
+            "image": "//img.ltwebstatic.com/images3_pi/2020/12/24/1608786278f2c40c6b4c269c996624826863e23999_thumbnail_600x.webp",
+            "price": 116,
+            "category": "Shorts",
+            "sizes": ["XS", "S", "M", "XL"]
+        },
+        {
+            "id": 11,
+            "name": "Elastic Waist",
+            "image": "//img.ltwebstatic.com/images3_pi/2020/12/23/1608735175d2940a6e12f7845b7996d72c79c655a1_thumbnail_600x.webp",
+            "price": 163,
+            "category": "Shorts",
+            "sizes": ["S"]
+        },
+        {
+            "id": 12,
+            "name": "Wide Waistband Rib-knit",
+            "image": "//img.ltwebstatic.com/images3_pi/2020/07/03/1593753414c0abc09c5dda3f188016a4a62c84865b_thumbnail_600x.webp",
+            "price": 134,
+            "category": "Shorts",
+            "sizes": ["S", "M", "L"]
+        },
+        {
+            "id": 13,
+            "name": "Ruffle Trim Bardot Mesh",
+            "image": "//img.ltwebstatic.com/images3_pi/2020/05/28/15906398032c4c4123b9da09d6e66fee62415d13af_thumbnail_600x.webp",
+            "price": 231,
+            "category": "Lingerie Set",
+            "sizes": ["S", "M", "L"]
+        },
+        {
+            "id": 14,
+            "name": "Cut-out Crochet Underwire Garter",
+            "image": "//img.ltwebstatic.com/images3_pi/2020/05/28/159064523276a28688457365913eae0092cc53838c_thumbnail_600x.webp",
+            "price": 245,
+            "category": "Lingerie Set",
+            "sizes": ["XS", "S", "M", "L"]
+        },
+        {
+            "id": 15,
+            "name": "Eyelash Lace Underwire",
+            "image": "//img.ltwebstatic.com/images3_pi/2020/10/24/160352717452519f74fbb034badc2d3bc7385cc1f7_thumbnail_600x.webp",
+            "price": 215,
+            "category": "Lingerie Set",
+            "sizes": ["XS", "S", "M", "L"]
+        },
+        {
+            "id": 16,
+            "name": "High Cut Rib-knit",
+            "image": "//img.ltwebstatic.com/images3_pi/2020/10/26/16036749412c3ad4210134a430e8779ce81697eab0_thumbnail_600x.webp",
+            "price": 215,
+            "category": "Panty",
+            "sizes": ["S", "M", "L"]
+        },
+        {
+            "id": 17,
+            "name": "Flower Appliques",
+            "image": "//img.ltwebstatic.com/images3_pi/2020/03/03/1583221246b9d57a0cb606e76e4e6134ada18f77a9_thumbnail_600x.webp",
+            "price": 215,
+            "category": "Lingerie Set",
+            "sizes": ["XS", "S"]
+        },
+        {
+            "id": 18,
+            "name": "Letter Tape Underwire",
+            "image": "//img.ltwebstatic.com/images3_pi/2019/12/21/157690032979e01e2e2010b199218337276de36f6e_thumbnail_600x.webp",
+            "price": 205,
+            "category": "Lingerie Set",
+            "sizes": ["S", "M", "L"]
+        },
+        {
+            "id": 19,
+            "name": "Plain Thong",
+            "image": "//img.ltwebstatic.com/images3_pi/2020/09/14/160006066459ac50c3c573be572abf4f9cb95c9fb2_thumbnail_600x.webp",
+            "price": 163,
+            "category": "Panty",
+            "sizes": ["S", "M", "L"]
+        },
+        {
+            "id": 20,
+            "name": "Solid Thong",
+            "image": "//img.ltwebstatic.com/images3_pi/2020/11/24/16062045030dd4cdb78c0fac4d0126210e518456cd_thumbnail_600x.webp",
+            "price": 163,
+            "category": "Panty",
+            "sizes": ["S", "M", "L", "XL"]
+        }
+    ]
+}

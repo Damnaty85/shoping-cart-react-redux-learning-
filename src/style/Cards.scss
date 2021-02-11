@@ -1,0 +1,69 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 250px;
+  margin-bottom: 10px;
+  & h4 {
+    margin: 10px 0;
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
+    align-items: center;
+    justify-content: flex-start;
+    grid-gap: 20px;
+    margin-bottom: 40px;
+  }
+  &__top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 335px;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &__bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    & p {
+      margin: 0;
+    }
+    &._row {
+      flex-direction: revert;
+      align-items: center;
+      justify-content: space-between;
+      min-height: min-content;
+      margin-top: auto;
+    }
+  }
+  &__price {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  &__size {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: auto 0 10px 0;
+    span {
+      border: 1px solid black;
+      width: 20px;
+      padding: 5px;
+      text-align: center;
+      margin-right: 3px;
+      cursor: pointer;
+      &.selected{
+        background-color: black;
+        color: white;
+      }
+    }
+  }
+}

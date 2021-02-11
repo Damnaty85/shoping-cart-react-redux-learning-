@@ -1,0 +1,26 @@
+@import "Header";
+@import "SmallBasket";
+@import "Filters";
+@import "Basket";
+@import "Cards";
+@import "Footer";
+
+html, body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+button {
+  width: 130px;
+  height: 35px;
+  background-color: snow;
+  border: 1px solid;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
