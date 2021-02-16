@@ -1,16 +1,73 @@
-.card{
-  &__filters {
+@import "variables";
+
+.cards {
+  &__control {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    margin-bottom: 30px;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &-filters {
+    &__container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 30px;
+    }
+
     & span {
       margin-right: 5px;
     }
+
     & select {
       margin-right: 20px;
       height: 25px;
-      width: 120px;
+      width: max-content;
+      border: none;
+      border-bottom: 1px solid #656565;
+      background-color: #f5f5f5;
+      outline: none;
+      padding: 0 20px 0 0;
+
+    }
+  }
+
+  &-sort {
+    margin-top: 22px;
+
+    &__wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      box-sizing: border-box;
+
+      & span {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+        border-bottom: 1px solid black;
+        cursor: pointer;
+      }
+    }
+
+    &__popup {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 200px;
+      padding: 10px;
+      z-index: 1;
+      background-color: white;
+      box-sizing: border-box;
+      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.20), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+      list-style: none;
+
+      & li {
+        padding: 5px 0;
+        cursor: pointer;
+      }
     }
   }
 }

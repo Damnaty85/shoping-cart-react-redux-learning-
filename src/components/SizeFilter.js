@@ -5,7 +5,7 @@ function SizeFilter({filterValue}) {
 
     return (
         <>
-            <span>Фильтровать по размеру:</span>
+            <span>по размеру:</span>
             <select>
                 <option value="">Все</option>
                 {

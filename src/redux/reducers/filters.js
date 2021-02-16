@@ -1,7 +1,11 @@
-import {SET_CATEGORY} from "../actions/types";
+import {SET_CATEGORY, SET_SORT_BY} from "../actions/types";
 
 const initialState = {
     category: "",
+    sortBy: {
+        type: 'id',
+        order: 'desc',
+    },
 };
 
 const filters = (state = initialState, action) => {
@@ -9,6 +13,12 @@ const filters = (state = initialState, action) => {
         return {
             ...state,
             category: action.payload,
+        };
+    }
+    if (action.type === SET_SORT_BY) {
+        return {
+            ...state,
+            sortBy: action.payload,
         };
     }
     return state;

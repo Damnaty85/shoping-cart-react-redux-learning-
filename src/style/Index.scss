@@ -4,23 +4,74 @@
 @import "Basket";
 @import "Cards";
 @import "Footer";
+@import "variables";
 
-html, body{
+* {
+  outline: none;
+  font-size: $main-font-size;
+}
+
+html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+}
+
+main {
+  padding-top: 88.81px;
+}
+
+.App {
+  background-color: #f5f5f5;
+  min-height: 100vh;
 }
 
 .container {
+  max-width: 1600px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 15px;
+  box-sizing: border-box;
 }
 
-button {
-  width: 130px;
+button.primary {
+  display: flex;
+  align-items: center;
+  width: max-content;
   height: 35px;
-  background-color: snow;
-  border: 1px solid;
-  border-radius: 3px;
   text-transform: uppercase;
+  color: black;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  cursor: pointer;
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  min-width: 64px;
+  box-sizing: border-box;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 1.75;
+  border-radius: 4px;
+  letter-spacing: 0.02857em;
+
+  &.disabled {
+    color: rgba(0, 0, 0, 0.26);
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.12);
+    pointer-events: none;
+  }
+
+  & svg {
+    font-size: 16px;
+    line-height: 35px;
+    margin-right: 4px;
+    margin-bottom: 2px;
+  }
+
+  &:hover {
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.04);
+  }
 }
