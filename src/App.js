@@ -13,12 +13,12 @@ function App() {
           <div className="App">
               <BrowserRouter>
                   <Header/>
-                  <div className="container">
+                  <main>
                       <Switch>
                           <Route exact path="/" component={Home}/>
                           <Route path="/cart" component={Basket}/>
                       </Switch>
-                  </div>
+                  </main>
                   <Footer/>
               </BrowserRouter>
           </div>

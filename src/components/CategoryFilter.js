@@ -6,11 +6,11 @@ const CategoryFilter = memo(function CategoryFilter({allCategories, activeCatego
 
     useEffect(() => {
         setState(categoriesValue);
-    }, []);
+    }, [allCategories]);
 
     return (
         <>
-            <span>Фильтровать по категории: </span>
+            <span>по категории: </span>
             <select value={activeCategory} onChange={handleChangeCategories}>
                 <option value="">Все</option>
                 {

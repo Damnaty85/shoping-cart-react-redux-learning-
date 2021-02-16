@@ -1,16 +1,33 @@
-.basket{
+.basket {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+
+  & button {
+    margin-left: auto;
+  }
+
   &-items {
     width: 100%;
-    display: grid;
-    place-items: center;
   }
-  &-item {
+
+  &-items {
+    &__left {
+      width: 100%;
+    }
+
+    &__props {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    max-width: 930px;
-    width: 100%;
     margin-bottom: 20px;
+
     &__image {
       width: 190px;
       height: 260px;
@@ -18,23 +35,51 @@
       align-items: center;
       justify-content: center;
       margin-right: 20px;
+
       & img {
         width: 100%;
         height: 100%;
         object-fit: contain;
       }
     }
+
     &__quantity {
       display: flex;
       align-items: center;
       justify-content: flex-start;
       margin-bottom: 20px;
-      & button {
-        width: 40px;
-        padding: 0;
-        font-size: 30px;
-        line-height: 30px;
+
+      & b {
+        color: rgba(0, 0, 0, 0.87);
+        padding: 6px 16px;
+        font-size: 1.2em;
+        min-width: 25px;
+        box-sizing: border-box;
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        font-weight: 500;
+        line-height: 1.75;
+        border-radius: 4px;
+        letter-spacing: 0.02857em;
+        text-transform: uppercase;
       }
+
+      & .button {
+        font-size: 0.875rem;
+        min-width: 25px;
+        min-height: 25px;
+        box-sizing: border-box;
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        font-weight: 500;
+        line-height: 1.75;
+        border-radius: 4px;
+        letter-spacing: 0.02857em;
+        text-transform: uppercase;
+        color: rgba(0, 0, 0, 0.87);
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        display: grid;
+        place-items: center;
+      }
+
       & span {
         width: 40px;
         height: 33px;
@@ -43,6 +88,7 @@
       }
     }
   }
+
   &__total-price {
     font-size: 23px;
     text-align: right;

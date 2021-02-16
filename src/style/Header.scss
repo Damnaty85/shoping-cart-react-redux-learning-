@@ -1,12 +1,31 @@
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 10px;
-  margin-bottom: 30px;
-  background-color: #2072bf;
-  & a{
+  background-color: #455a64;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+
+  & a {
     text-decoration: none;
+    color: white;
+  }
+
+  & ._header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.header {
+  &-inner__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 130px;
+    width: 100%;
     color: white;
   }
 }

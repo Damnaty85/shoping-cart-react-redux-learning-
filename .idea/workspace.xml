@@ -11,8 +11,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="SCSS File" />
         <option value="JavaScript File" />
+        <option value="SCSS File" />
       </list>
     </option>
   </component>
@@ -23,7 +23,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-shopping" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -81,6 +81,11 @@
       <workItem from="1612578165095" duration="1226000" />
       <workItem from="1612579521986" duration="9675000" />
       <workItem from="1612724854092" duration="6260000" />
+      <workItem from="1613015655398" duration="682000" />
+      <workItem from="1613093309781" duration="3403000" />
+      <workItem from="1613148470489" duration="1596000" />
+      <workItem from="1613154318130" duration="28092000" />
+      <workItem from="1613238593223" duration="33328000" />
     </task>
     <servers />
   </component>

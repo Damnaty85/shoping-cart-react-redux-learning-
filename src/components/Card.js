@@ -1,10 +1,14 @@
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
+import Button from "./Button";
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 
-function Card({ id, name, image, price, category, sizes, addBasket, addedCount }) {
-    const [activeSize, setActiveSize] = React.useState('');
+function Card({ id, name, image, price, currency, category, sizes, votes, addBasket, addedCount }) {
+    const [activeSize, setActiveSize] = useState('');
+    const [isSelected, setIsSelected] = useState(false);
 
     const onSelectSize = (size) => {
         setActiveSize(size);
+        setIsSelected(true);
     };
 
     const addProduct = () => {
@@ -13,19 +17,19 @@ function Card({ id, name, image, price, category, sizes, addBasket, addedCount }
             name,
             image,
             price,
+            currency,
+            category,
             sizes: activeSize
         };
         addBasket(obj);
     };
 
     return (
-        <div className="card">
-            <div className="card__top">
+        <div className="cards-item">
+            <div className="cards-item__top">
                 <img src={image} alt={name}/>
-            </div>
-            <div className="card__bottom">
-                <h4>{name}</h4>
-                <span className="card__size">
+                <div className="cards-item__buying">
+                <span className="cards-item__size">
                     {
                         sizes.map((size) => (
                             <span onClick={() => onSelectSize(size)}
@@ -37,12 +41,14 @@ function Card({ id, name, image, price, category, sizes, addBasket, addedCount }
                         ))
                     }
                 </span>
-                <span className="card__bottom _row">
-                    <span className="card__price">{price} руб.</span>
-                    <button onClick={addProduct}>
-                        Добавить {addedCount && <span> ({addedCount})</span>}
-                    </button>
-                </span>
+                    <Button onClick={addProduct} className={!isSelected && `disabled`} title={'Выберите размер'}>
+                        <ShoppingBasketIcon/> Купить {addedCount && <span> ({addedCount})</span>}
+                    </Button>
+                </div>
+            </div>
+            <div className="cards-item__bottom">
+                <p>{name} <span className="cards-item__price">{price} {currency}</span></p>
+                <span className="cards-item__rating">Рейтинг: {((votes+31.25) / (5+10)).toFixed(1)}</span>
             </div>
         </div>
     );

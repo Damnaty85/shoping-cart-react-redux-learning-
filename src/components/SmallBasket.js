@@ -1,9 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import {Link} from "react-router-dom";
-import { removeBasketItem } from "../redux/actions/basket";
+import {minusBasketItem, plusBasketItem, removeBasketItem} from "../redux/actions/basket";
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import RemoveShoppingCartOutlinedIcon from '@material-ui/icons/RemoveShoppingCartOutlined';
+import AddRoundedIcon from '@material-ui/icons/AddRounded';
+import RemoveRoundedIcon from '@material-ui/icons/RemoveRounded';
+import Button from "./Button";
 
 function SmallBasket() {
     const dispatch = useDispatch();
@@ -16,6 +19,14 @@ function SmallBasket() {
 
     const handleRemoveBasketItem = (id) => {
         dispatch(removeBasketItem(id))
+    };
+
+    const plusesItemHandler = (id) => {
+        dispatch(plusBasketItem(id));
+    };
+
+    const minusesItemHandler = (id) => {
+        dispatch(minusBasketItem(id));
     };
 
     return (
@@ -33,13 +44,17 @@ function SmallBasket() {
                             </span>
                             <span className="small-basket__right">
                                 <span>{obj.name}</span>
-                                <span className="small-basket__price">{obj.price} руб.</span>
+                                <span className="small-basket__price">{obj.price} {obj.currency}</span>
                                 <div className="small-basket__quantity">
-                                    <button>-</button>
-                                    <span>{cartItems[obj.id] && cartItems[obj.id].items.length}</span>
-                                    <button>+</button>
+                                    <div className="button button-minus" onClick={() => minusesItemHandler(obj.id)}>
+                                        <RemoveRoundedIcon/>
+                                    </div>
+                                    <b>{cartItems[obj.id] && cartItems[obj.id].items.length}</b>
+                                    <div className="button button-plus" onClick={() => plusesItemHandler(obj.id)}>
+                                        <AddRoundedIcon/>
+                                    </div>
                                 </div>
-                                <button onClick={() => handleRemoveBasketItem(obj.id)}>Удалить из корзины</button>
+                                <Button onClick={() => handleRemoveBasketItem(obj.id)}>Удалить из корзины</Button>
                             </span>
                         </span>
                     ))
