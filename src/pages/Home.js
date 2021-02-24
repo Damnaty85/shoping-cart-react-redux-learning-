@@ -6,7 +6,6 @@ import CategoryFilter from "../components/CategoryFilter";
 import Sorting from "../components/Sorting";
 import { fetchProducts } from "../redux/actions/products";
 import { addBasket } from "../redux/actions/basket";
-import SizeFilter from "../components/SizeFilter";
 import {setCategory, setSortBy} from "../redux/actions/filters";
 
 function Home() {
@@ -14,11 +13,11 @@ function Home() {
     const items = useSelector(({ products }) => products.items);
     const isLoaded = useSelector(({ products }) => products.isLoaded);
     const cartItems = useSelector(({ addToCart }) => addToCart.items);
-    const { category, sortBy } = useSelector(({ filters }) => filters);
+    const { categoryKey, categoryValue, sortBy } = useSelector(({ filters }) => filters);
 
     useEffect(() => {
-        dispatch(fetchProducts(sortBy, category));
-    },[sortBy, category, dispatch]);
+        dispatch(fetchProducts(sortBy, categoryKey, categoryValue));
+    },[sortBy, categoryKey, categoryValue, dispatch]);
 
     const addProductToBasket = (obj) => {
         dispatch(addBasket(obj));
@@ -35,41 +34,35 @@ function Home() {
 
     return (
         <div className="container">
-            <div className="cards__control">
-                <div className="cards-filters">
-                    <p>Фильтр:</p>
-                    <div className="cards-filters__container">
-                        <SizeFilter filterValue={Array.from(items, ({sizes}) => sizes)}/>
-                        <CategoryFilter
-                            allCategories={Array.from(items, ({category}) => category)}
-                            handleChangeCategories={handleChangeCategories}
-                            activeCategory={category}
-                        />
-                    </div>
-                </div>
-                <div className="cards-sort">
-                    <Sorting
-                        activeSortType={sortBy.type}
-                        onSelectSortType={onSelectSortType}
+            <section className="cards">
+                <div className="cards__left">
+                    <CategoryFilter
+                        handleChangeCategories={handleChangeCategories}
                     />
                 </div>
-            </div>
-            <section className="cards">
-                <div className="cards__wrapper">
-                    {
-                        isLoaded ?
-                        items.map((obj) => (
-                            <Card
-                                {...obj}
-                                key={obj.id}
-                                addedCount={cartItems[obj.id] && cartItems[obj.id].items.length}
-                                addBasket={addProductToBasket}
-                            />
-                        )) : Array(12)
-                                .fill(0)
-                                .map((_, index) => <LoadingItem key={index} />)}
+                <div className="cards__right">
+                    <div className="cards-sort">
+                        <Sorting
+                            activeSortType={sortBy.type}
+                            onSelectSortType={onSelectSortType}
+                        />
+                    </div>
+                    <div className="cards__wrapper">
+                        {
+                            isLoaded ?
+                                items.map((obj) => (
+                                    <Card
+                                        {...obj}
+                                        key={obj.id}
+                                        addedCount={cartItems[obj.id] && cartItems[obj.id].items.length}
+                                        addBasket={addProductToBasket}
+                                    />
+                                )) : Array(12)
+                                    .fill(0)
+                                    .map((_, index) => <LoadingItem key={index} />)
 
-                    }
+                        }
+                    </div>
                 </div>
             </section>
         </div>

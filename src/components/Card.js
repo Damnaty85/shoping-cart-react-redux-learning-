@@ -2,7 +2,7 @@ import React, { memo, useState } from 'react';
 import Button from "./Button";
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 
-function Card({ id, name, image, price, currency, category, sizes, votes, addBasket, addedCount }) {
+function Card({ id, name, image, price, currency, category, sizes, votes, properties, addBasket, addedCount }) {
     const [activeSize, setActiveSize] = useState('');
     const [isSelected, setIsSelected] = useState(false);
 
