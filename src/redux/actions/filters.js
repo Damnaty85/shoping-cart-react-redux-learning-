@@ -1,8 +1,12 @@
-import {SET_CATEGORY, SET_SORT_BY} from "./types";
+import {SET_FILTER, SET_SORT_BY, CLEAR_FILTER} from "./types";
 
-export const setCategory = (evt) => ({
-    type: SET_CATEGORY,
+export const setFilter = (evt) => ({
+    type: SET_FILTER,
     payload: evt.target,
+});
+
+export const clearFilter = () => ({
+    type: CLEAR_FILTER,
 });
 
 

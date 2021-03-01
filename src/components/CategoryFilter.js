@@ -1,9 +1,9 @@
 import React, {memo, useEffect, useState} from 'react';
 import Button from "./Button";
-import {BASE_URL} from "../redux/actions/types";
+import { BASE_URL } from "../redux/actions/types";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-const CategoryFilter = memo(function CategoryFilter({ handleChangeCategories }) {
+const CategoryFilter = memo(function CategoryFilter({ handleChangeFilters, handleClearFilters, filterActive }) {
     const [active, setActive] = useState('');
     const [products, setProducts] = useState([]);
 
@@ -18,7 +18,7 @@ const CategoryFilter = memo(function CategoryFilter({ handleChangeCategories }) 
 
     const propertiesArray = Array.from(products, ({properties}) => properties);
 
-    const getArrayProp = (array) => {
+    const getKeys = (array) => {
         const newArray = [];
         for (let obj of array) {
             newArray.push(Object.keys(obj))
@@ -47,29 +47,33 @@ const CategoryFilter = memo(function CategoryFilter({ handleChangeCategories }) 
 
     return (
         <>
-            <div className="smart-filter">
+            <div className={`smart-filter`}>
                 {
-                    getArrayProp(propertiesArray).map((props, index) => (
-                        <div className="smart-filter__item"
+                    getKeys(propertiesArray).map((props, index) => (
+                        <div className={`smart-filter__item`}
                              key={props}>
                             <span
                                 className={`smart-filter__title ${+active === index ? 'active' : ''}`}
                                 onClick={() => openedMenu(index)}>{props}
                                 <ExpandMoreIcon/>
                             </span>
-                            <span  className="smart-filter__values">
+                            <span  className={`smart-filter__values`}>
                                 {
                                     getValues(propertiesArray, props).map((value, index) => (
                                         <Button
-                                            className="smart-filter__button"
+                                            className={`smart-filter__value`}
                                             key={`${value}_${index}`}
-                                            onClick={handleChangeCategories}
+                                            onClick={handleChangeFilters}
                                         >{value}</Button>
                                     ))
                                 }
                             </span>
                         </div>
                     ))
+                }
+                {
+                    filterActive &&
+                    <Button onClick={handleClearFilters} className={`smart-filter__reset`}>Сбросить фильтр</Button>
                 }
             </div>
         </>

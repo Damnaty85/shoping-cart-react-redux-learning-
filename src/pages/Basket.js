@@ -1,4 +1,5 @@
 import React from 'react';
+import OrderForm from "../components/OrderForm";
 import { useSelector, useDispatch } from "react-redux";
 import BasketItem from "../components/BasketItem";
 import { clearBasket, removeBasketItem, plusBasketItem, minusBasketItem } from "../redux/actions/basket";
@@ -38,28 +39,32 @@ function Basket() {
                 }
             </h1>
             {addedProducts.length !== 0 && <Button onClick={handleClearBasket}>Очистить корзину</Button>}
-            <div className="basket__wrapper">
-                {
-                    addedProducts.map((obj) => (
-                        <BasketItem
-                            key={obj.name}
-                            id={obj.id}
-                            name={obj.name}
-                            image={obj.image}
-                            category={obj.category}
-                            size={obj.sizes}
-                            currency={obj.currency}
-                            price={items[obj.id].totalPrice}
-                            count={items[obj.id].items.length}
-                            removeBasketItemHandler={removeBasketItemHandler}
-                            plusesItemHandler={plusesItemHandler}
-                            minusesItemHandler={minusesItemHandler}
-                        />
-                    ))
-                }
+            <div className="basket__container">
+                <div className="basket__wrapper">
+                    {
+                        addedProducts.map((obj) => (
+                            <BasketItem
+                                key={obj.id}
+                                id={obj.id}
+                                name={obj.name}
+                                image={obj.image}
+                                category={obj.category}
+                                size={obj.sizes}
+                                currency={obj.currency}
+                                price={items[obj.id].totalPrice}
+                                count={items[obj.id].items.length}
+                                removeBasketItemHandler={removeBasketItemHandler}
+                                plusesItemHandler={plusesItemHandler}
+                                minusesItemHandler={minusesItemHandler}
+                            />
+                        ))
+                    }
+                </div>
+                <div className="basket__form">
+                    <OrderForm/>
+                </div>
             </div>
             {addedProducts.length !== 0 && <p className="basket__total-price">Всего товара на сумму: {totalPrice} RUB</p>}
-            {addedProducts.length !== 0 && <Button>Оформить заказ</Button>}
         </div>
     );
 }

@@ -3,7 +3,9 @@
 @import "Filters";
 @import "Basket";
 @import "Cards";
+@import "FastView";
 @import "Footer";
+@import "Modal";
 @import "variables";
 
 * {
@@ -73,5 +75,28 @@ button.primary {
   &:hover {
     text-decoration: none;
     background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  &.smart-filter__value {
+    margin-bottom: 5px;
+    margin-right: 5px;
+    padding: 3px 5px;
+    justify-content: center;
+    font-size: 10px;
+    min-width: 35px;
+    line-height: unset;
+  }
+
+  &.cards-item__fast-view {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    background-color: #ffffff87;
+    opacity: 0;
+
+    &:hover {
+      background-color: white;
+    }
   }
 }

@@ -1,8 +1,12 @@
-import React, { memo, useState } from 'react';
+import React, {memo, useRef, useState} from 'react';
+import FastView from "./FastView";
+import { LazyImage } from "./LazyImage";
+import Modal from "./Modal";
 import Button from "./Button";
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 
-function Card({ id, name, image, price, currency, category, sizes, votes, properties, addBasket, addedCount }) {
+function Card({ id, name, image, price, currency, properties, sizes, votes, moreImage, addBasket, addedCount }) {
+    const modalRef = useRef();
     const [activeSize, setActiveSize] = useState('');
     const [isSelected, setIsSelected] = useState(false);
 
@@ -18,38 +22,49 @@ function Card({ id, name, image, price, currency, category, sizes, votes, proper
             image,
             price,
             currency,
-            category,
+            category: properties.Категория,
             sizes: activeSize
         };
         addBasket(obj);
     };
 
+    const openModal = () => {
+        modalRef.current.displayingModal();
+    };
+
     return (
         <div className="cards-item">
             <div className="cards-item__top">
-                <img src={image} alt={name}/>
+                <LazyImage src={image} alt={name}/>
                 <div className="cards-item__buying">
-                <span className="cards-item__size">
-                    {
-                        sizes.map((size) => (
-                            <span onClick={() => onSelectSize(size)}
-                                  key={size}
-                                  className={activeSize === size ? 'selected' : ''}
-                            >
-                                {size}
-                            </span>
-                        ))
-                    }
-                </span>
+                    <span className="cards-item__size">
+                        {
+                            sizes.map((size) => (
+                                <span onClick={() => onSelectSize(size)}
+                                      key={size}
+                                      className={activeSize === size ? 'selected' : ''}
+                                >
+                                    {size}
+                                </span>
+                            ))
+                        }
+                    </span>
                     <Button onClick={addProduct} className={!isSelected && `disabled`} title={'Выберите размер'}>
                         <ShoppingBasketIcon/> Купить {addedCount && <span> ({addedCount})</span>}
                     </Button>
                 </div>
+                <Button onClick={openModal} className={`cards-item__fast-view`}>Быстрый просмотр</Button>
             </div>
             <div className="cards-item__bottom">
                 <p>{name} <span className="cards-item__price">{price} {currency}</span></p>
                 <span className="cards-item__rating">Рейтинг: {((votes+31.25) / (5+10)).toFixed(1)}</span>
             </div>
+            <Modal ref={modalRef}>
+                <FastView
+                    name={name}
+                    moreImage={moreImage}
+                />
+            </Modal>
         </div>
     );
 }

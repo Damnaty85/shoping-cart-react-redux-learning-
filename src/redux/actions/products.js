@@ -11,7 +11,7 @@ export const fetchProducts = (sortBy, categoryKey, categoryValue) => async (disp
         payload: false,
     });
 
-    await fetch(`${BASE_URL}?${categoryKey !== "" ? `&properties.${categoryKey}=${categoryValue}` : ''}&_sort=${sortBy.type}&_order=${sortBy.order}`)
+    await fetch(`${BASE_URL}?${categoryValue !== "" ? `&properties.${categoryKey}=${categoryValue}` : ''}&_sort=${sortBy.type}&_order=${sortBy.order}`)
         .then(response => response.json())
         .then(data => dispatch(setProducts(data)))
 };

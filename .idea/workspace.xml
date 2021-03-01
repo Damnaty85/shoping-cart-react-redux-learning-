@@ -23,7 +23,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-shopping" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -85,7 +85,10 @@
       <workItem from="1613093309781" duration="3403000" />
       <workItem from="1613148470489" duration="1596000" />
       <workItem from="1613154318130" duration="28092000" />
-      <workItem from="1613238593223" duration="129404000" />
+      <workItem from="1613238593223" duration="133726000" />
+      <workItem from="1614190811988" duration="3142000" />
+      <workItem from="1614216101072" duration="29326000" />
+      <workItem from="1614563530341" duration="6570000" />
     </task>
     <servers />
   </component>

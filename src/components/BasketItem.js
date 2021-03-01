@@ -8,6 +8,7 @@ function BasketItem({id, image, name, category, size,  price, currency, count, r
     return (
         <div className="basket-items" key={id}>
             <div className="basket-items__image"><img src={image} alt={name}/></div>
+            {console.log(size)}
             <div className="basket-items__left">
                 <h3>{name}</h3>
                 <p><b>Категория: </b>{category}</p>

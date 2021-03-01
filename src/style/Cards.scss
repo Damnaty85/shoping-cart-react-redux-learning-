@@ -31,10 +31,12 @@
 
     &:hover {
       box-shadow: $card-hover-shadow;
-    }
-
-    &:hover .cards-item__buying {
-      bottom: 20px;
+      & .cards-item__buying {
+        bottom: 20px;
+      }
+      & .cards-item__fast-view {
+        opacity: 1;
+      }
     }
 
     &__top {

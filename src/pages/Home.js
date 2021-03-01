@@ -6,7 +6,7 @@ import CategoryFilter from "../components/CategoryFilter";
 import Sorting from "../components/Sorting";
 import { fetchProducts } from "../redux/actions/products";
 import { addBasket } from "../redux/actions/basket";
-import {setCategory, setSortBy} from "../redux/actions/filters";
+import {clearFilter, setFilter, setSortBy} from "../redux/actions/filters";
 
 function Home() {
     const dispatch = useDispatch();
@@ -23,10 +23,13 @@ function Home() {
         dispatch(addBasket(obj));
     };
 
-    const handleChangeCategories = useCallback((evt) => {
-        dispatch(setCategory(evt))
+    const handleChangeFilters = useCallback((evt) => {
+        dispatch(setFilter(evt))
     }, [dispatch]);
 
+    const handleClearFilters = useCallback(() => {
+        dispatch(clearFilter())
+    }, [dispatch]);
 
     const onSelectSortType = React.useCallback((type) => {
         dispatch(setSortBy(type));
@@ -37,7 +40,9 @@ function Home() {
             <section className="cards">
                 <div className="cards__left">
                     <CategoryFilter
-                        handleChangeCategories={handleChangeCategories}
+                        handleChangeFilters={handleChangeFilters}
+                        handleClearFilters={handleClearFilters}
+                        filterActive={categoryValue}
                     />
                 </div>
                 <div className="cards__right">
