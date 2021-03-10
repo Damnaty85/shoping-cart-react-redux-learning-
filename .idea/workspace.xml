@@ -23,7 +23,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-shopping-cart" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -32,9 +32,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\ReactAppProject\shopping-react-redux\public" />
-      <recent name="D:\ReactAppProject\shopping-react-redux\src\data" />
+      <recent name="D:\ReactAppProject\shopping-react-redux\src\redux\reducers" />
+      <recent name="D:\ReactAppProject\shopping-react-redux\src\components" />
+      <recent name="D:\ReactAppProject\shopping-react-redux\src\pureComponents" />
       <recent name="D:\ReactAppProject\shopping-react-redux\src\pages" />
+      <recent name="D:\ReactAppProject\shopping-react-redux\public" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -88,7 +90,7 @@
       <workItem from="1613238593223" duration="133726000" />
       <workItem from="1614190811988" duration="3142000" />
       <workItem from="1614216101072" duration="29326000" />
-      <workItem from="1614563530341" duration="6570000" />
+      <workItem from="1614563530341" duration="57326000" />
     </task>
     <servers />
   </component>

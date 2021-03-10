@@ -1,9 +1,10 @@
-import React, {memo, useEffect, useState} from 'react';
-import Button from "./Button";
+import React, {memo, useEffect, useRef, useState} from 'react';
+import Button from "./common/Button";
 import { BASE_URL } from "../redux/actions/types";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-const CategoryFilter = memo(function CategoryFilter({ handleChangeFilters, handleClearFilters, filterActive }) {
+const SmartFilter = memo(function SmartFilter({ handleChangeFilters, handleClearFilters, filterActive }) {
+    const content = useRef();
     const [active, setActive] = useState('');
     const [products, setProducts] = useState([]);
 
@@ -50,14 +51,28 @@ const CategoryFilter = memo(function CategoryFilter({ handleChangeFilters, handl
             <div className={`smart-filter`}>
                 {
                     getKeys(propertiesArray).map((props, index) => (
-                        <div className={`smart-filter__item`}
-                             key={props}>
+                        <div
+                            className={`smart-filter__item`}
+                            key={props}
+                            style={{
+                                margin: +active === index ? `10px 0`: `0`
+                            }}
+                        >
                             <span
-                                className={`smart-filter__title ${+active === index ? 'active' : ''}`}
-                                onClick={() => openedMenu(index)}>{props}
+                                className={`smart-filter__title`}
+                                onClick={() => openedMenu(index)}
+                            >{props}
                                 <ExpandMoreIcon/>
                             </span>
-                            <span  className={`smart-filter__values`}>
+                            <span
+                                className={`smart-filter__values`}
+                                style={{
+                                    visibility: +active === index ? `visible`: `hidden`,
+                                    height: +active === index ? `auto`: `0`,
+                                    paddingTop: +active === index ? `10px`: `0`
+                                }}
+                                ref={content}
+                            >
                                 {
                                     getValues(propertiesArray, props).map((value, index) => (
                                         <Button
@@ -80,4 +95,4 @@ const CategoryFilter = memo(function CategoryFilter({ handleChangeFilters, handl
     )
 });
 
-export default CategoryFilter;
+export default SmartFilter;

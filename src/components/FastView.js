@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import {LazyImage} from "./LazyImage";
+import {LazyImage} from "./common/LazyImage";
 
 function FastView({ name, moreImage }) {
     const mainImage = useRef();

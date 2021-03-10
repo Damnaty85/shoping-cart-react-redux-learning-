@@ -5,13 +5,13 @@ const setProducts = (items) => ({
     payload: items,
 });
 
-export const fetchProducts = (sortBy, categoryKey, categoryValue) => async (dispatch) => {
+export const fetchProducts = (sortBy, categoryKey, categoryValue, page) => async (dispatch) => {
     dispatch({
         type: SET_LOADED,
         payload: false,
     });
 
-    await fetch(`${BASE_URL}?${categoryValue !== "" ? `&properties.${categoryKey}=${categoryValue}` : ''}&_sort=${sortBy.type}&_order=${sortBy.order}`)
+    await fetch(`${BASE_URL}?_page=${page}&_limit=10&${categoryValue !== "" ? `&properties.${categoryKey}=${categoryValue}` : ''}&_sort=${sortBy.type}&_order=${sortBy.order}`)
         .then(response => response.json())
         .then(data => dispatch(setProducts(data)))
 };

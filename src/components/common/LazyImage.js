@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 
 const placeHolder =
@@ -24,7 +24,7 @@ const Image = styled.img`
   }
 `;
 
-export const LazyImage = ({ src, alt, onMouseEnter }) => {
+export const LazyImage = ({src, alt, onMouseEnter}) => {
     const [imageSrc, setImageSrc] = useState(placeHolder);
     const [imageRef, setImageRef] = useState();
 

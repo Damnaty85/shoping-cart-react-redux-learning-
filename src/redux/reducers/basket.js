@@ -46,9 +46,32 @@ const addToCart = (state = initialState, action) => {
             const totalCount = getTotalSum(newItems, 'items.length');
             const totalPrice = getTotalSum(newItems, 'totalPrice');
 
+            const saveState = (state) => {
+                try {
+                    const serializedState = JSON.stringify(state);
+                    localStorage.setItem('state', serializedState);
+                } catch {
+                    // ignore write errors
+                }
+            };
+
+            saveState(newItems);
+
+            const loadState = () => {
+                try {
+                    const serializedState = localStorage.getItem('state');
+                    if (serializedState === null) {
+                        return undefined;
+                    }
+                    return JSON.parse(serializedState);
+                } catch (err) {
+                    return undefined;
+                }
+            };
+
             return {
                 ...state,
-                items: newItems,
+                items: loadState(),
                 totalCount,
                 totalPrice,
             };

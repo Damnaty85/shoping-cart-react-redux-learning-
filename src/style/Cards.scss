@@ -34,8 +34,10 @@
       & .cards-item__buying {
         bottom: 20px;
       }
-      & .cards-item__fast-view {
-        opacity: 1;
+      & button {
+        &._fast-view {
+          opacity: 1;
+        }
       }
     }
 
@@ -50,6 +52,30 @@
         height: 100%;
         object-fit: cover;
         object-position: top;
+      }
+
+      & button {
+        & svg {
+          margin-right: 5px;
+        }
+        &.disabled {
+          color: rgba(0, 0, 0, 0.26);
+          box-shadow: none;
+          background-color: rgba(0, 0, 0, 0.12);
+          pointer-events: none;
+        }
+        &._fast-view {
+          position: absolute;
+          top: 50%;
+          right: 50%;
+          transform: translate(50%, 50%);
+          background-color: #ffffff87;
+          opacity: 0;
+
+          &:hover {
+            background-color: white;
+          }
+        }
       }
     }
 

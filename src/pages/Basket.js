@@ -3,7 +3,7 @@ import OrderForm from "../components/OrderForm";
 import { useSelector, useDispatch } from "react-redux";
 import BasketItem from "../components/BasketItem";
 import { clearBasket, removeBasketItem, plusBasketItem, minusBasketItem } from "../redux/actions/basket";
-import Button from "../components/Button";
+import Button from "../components/common/Button";
 
 function Basket() {
     const dispatch = useDispatch();
@@ -29,12 +29,17 @@ function Basket() {
         dispatch(minusBasketItem(id));
     };
 
+    const declination = (number, words) => {
+        const cases = [2, 0, 1, 1, 1, 2];
+        return words[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
+    };
+
     return (
         <div className="basket">
             <h1>
                 {
                     addedProducts.length !== 0
-                    ? `В корзине ${totalCount} товара`
+                    ? `В корзине ${totalCount} ${declination(totalCount, ['товар', 'товара', 'товаров'])}`
                         : `В корзине пусто`
                 }
             </h1>
@@ -61,7 +66,10 @@ function Basket() {
                     }
                 </div>
                 <div className="basket__form">
-                    <OrderForm/>
+                    {
+                        addedProducts.length !== 0 &&
+                        <OrderForm orderProducts={addedProducts}/>
+                    }
                 </div>
             </div>
             {addedProducts.length !== 0 && <p className="basket__total-price">Всего товара на сумму: {totalPrice} RUB</p>}

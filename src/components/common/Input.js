@@ -31,7 +31,7 @@ const LabelField = styled.label`
 const Bar = styled.span`
     position:relative; 
     display:block; 
-    width:300px;
+    width:400px;
     &:before,
     &:after{
         content:'';
@@ -54,10 +54,11 @@ const InputField = styled.input`
     font-size:14px;
     padding:10px 10px 10px 5px;
     display:block;
-    width:300px;
+    width:400px;
     border:none;
     border-bottom:1px solid #757575;
     background: transparent;
+    box-sizing: border-box;
     &:focus {
         outline: none;
     }
@@ -80,12 +81,12 @@ const InputField = styled.input`
     }
 `;
 
-function Input({ type, name, required, placeHolder }) {
+function Input({ type, name, required, placeHolder, onChange }) {
     return (
         <FieldWrap>
-            <InputField type={type} name={name} required={required}/>
-            <Highlight></Highlight>
-            <Bar></Bar>
+            <InputField type={type} name={name} onChange={onChange} required={required}/>
+            <Highlight/>
+            <Bar/>
             <LabelField>{placeHolder}</LabelField>
         </FieldWrap>
     );

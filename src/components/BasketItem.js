@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from "./Button";
+import Button from "./common/Button";
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import RemoveRoundedIcon from '@material-ui/icons/RemoveRounded';
 
@@ -8,7 +8,6 @@ function BasketItem({id, image, name, category, size,  price, currency, count, r
     return (
         <div className="basket-items" key={id}>
             <div className="basket-items__image"><img src={image} alt={name}/></div>
-            {console.log(size)}
             <div className="basket-items__left">
                 <h3>{name}</h3>
                 <p><b>Категория: </b>{category}</p>

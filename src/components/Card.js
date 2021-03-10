@@ -1,8 +1,8 @@
 import React, {memo, useRef, useState} from 'react';
 import FastView from "./FastView";
-import { LazyImage } from "./LazyImage";
-import Modal from "./Modal";
-import Button from "./Button";
+import { LazyImage } from "./common/LazyImage";
+import Modal from "./common/Modal";
+import Button from "./common/Button";
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 
 function Card({ id, name, image, price, currency, properties, sizes, votes, moreImage, addBasket, addedCount }) {
@@ -42,7 +42,7 @@ function Card({ id, name, image, price, currency, properties, sizes, votes, more
                             sizes.map((size) => (
                                 <span onClick={() => onSelectSize(size)}
                                       key={size}
-                                      className={activeSize === size ? 'selected' : ''}
+                                      className={activeSize === size ? `selected` : ''}
                                 >
                                     {size}
                                 </span>
@@ -53,7 +53,7 @@ function Card({ id, name, image, price, currency, properties, sizes, votes, more
                         <ShoppingBasketIcon/> Купить {addedCount && <span> ({addedCount})</span>}
                     </Button>
                 </div>
-                <Button onClick={openModal} className={`cards-item__fast-view`}>Быстрый просмотр</Button>
+                <Button onClick={openModal} className={`_fast-view`}>Быстрый просмотр</Button>
             </div>
             <div className="cards-item__bottom">
                 <p>{name} <span className="cards-item__price">{price} {currency}</span></p>
