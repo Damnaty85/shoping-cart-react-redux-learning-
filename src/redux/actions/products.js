@@ -1,8 +1,13 @@
-import {BASE_URL, SET_LOADED, SET_PRODUCTS} from "./types";
+import {BASE_URL, SET_LOADED, SET_PRODUCTS, SET_NEW_PAGE} from "./types";
 
 const setProducts = (items) => ({
     type: SET_PRODUCTS,
     payload: items,
+});
+
+export const setNewPage = (page) => ({
+    type: SET_NEW_PAGE,
+    payload: page
 });
 
 export const fetchProducts = (sortBy, categoryKey, categoryValue, page) => async (dispatch) => {

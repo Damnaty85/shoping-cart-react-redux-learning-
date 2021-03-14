@@ -1,8 +1,8 @@
-import {SET_LOADED, SET_PRODUCTS} from "../actions/types";
+import {SET_LOADED, SET_NEW_PAGE, SET_PRODUCTS} from "../actions/types";
 
 const initialState = {
     items: [],
-    loadMore: null,
+    page: 1,
     isLoaded: false,
 };
 
@@ -10,12 +10,16 @@ const products = (state = initialState, action) => {
     switch (action.type) {
         case SET_PRODUCTS:
             const newItems = action.payload;
-            const {items} = state;
+            const { items } = state;
             return {
                 ...state,
                 items: [...items, ...newItems],
-                loadMore: newItems.length,
                 isLoaded: true,
+            };
+        case SET_NEW_PAGE:
+            return {
+                ...state,
+                page: state.page + 1
             };
         case SET_LOADED:
             return {

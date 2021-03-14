@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 
 const placeHolder =
-    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII=';
+    'https://assets.materialup.com/uploads/301a83ce-31fd-4cf5-8c9d-b88d4c44bab7/preview.gif';
 
 const Image = styled.img`
   display: block;

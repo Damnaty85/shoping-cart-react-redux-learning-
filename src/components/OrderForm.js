@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Input from "./common/Input";
+import RadioButton from "./common/RadioButton";
 import Button from "./common/Button";
 
 function OrderForm({ orderProducts }) {
@@ -8,6 +9,7 @@ function OrderForm({ orderProducts }) {
         phone: "",
         email: "",
         address: "",
+        gender: ""
     });
 
     const handleInput = (evt) => {
@@ -38,6 +40,8 @@ function OrderForm({ orderProducts }) {
                 <Input type={"phone"} name={"phone"} placeHolder={"Ваш телефон"} required={"required"} onChange={handleInput}/>
                 <Input type={"mail"} name={"email"} placeHolder={"Ваш email"} required={"required"}  onChange={handleInput}/>
                 <Input type={"address"} name={"address"} placeHolder={"Ваш адрес"} required={"required"} onChange={handleInput}/>
+                <RadioButton id={'male'} title={'Мужчина'} name={'gender'} value={"Мужчина"} onChange={handleInput}/>
+                <RadioButton id={'female'} title={'Женщина'} name={'gender'} value={'Женщина'} onChange={handleInput}/>
                 <Button type={"submit"}>Оформить заказ</Button>
             </form>
         </>

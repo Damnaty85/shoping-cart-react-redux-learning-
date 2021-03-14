@@ -1,36 +1,73 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import Card from "../components/Card";
 import LoadingItem from "../components/Loader";
 import SmartFilter from "../components/SmartFilter";
 import Sorting from "../components/Sorting";
 import {fetchProducts} from "../redux/actions/products";
-import {loadMoreItems} from "../redux/actions/infinityScroll";
+import {setNewPage} from "../redux/actions/products";
 import { addBasket } from "../redux/actions/basket";
 import {clearFilter, setFilter, setSortBy} from "../redux/actions/filters";
 import ScrollToTop from "../components/common/ScrollToTop";
 
+function useOnScreen(options) {
+    const [ref, setRef] = React.useState(null);
+    const [visible, setVisible] = React.useState(false);
+
+    React.useEffect(() => {
+        if (!ref) return;
+        const observer = new IntersectionObserver(interSectionCallback, options);
+        observer.observe(ref);
+
+        const mountChildren = () => {
+            if (visible) return;
+            setVisible(true)
+        };
+
+        const unMountChildren = () => {
+            if (!visible) return;
+            setVisible(false);
+        };
+
+        function interSectionCallback(entries){
+            entries.forEach(entry => {
+                // console.log("Intersection ratio", entry.intersectionRatio * 100);
+                if (entry.isIntersecting) {
+                    mountChildren();
+                } else {
+                    unMountChildren();
+                }
+            });
+        }
+
+        return () => observer.unobserve(ref);
+
+    }, [ref, options]);
+    return [setRef, visible];
+}
+
 function Home() {
+    const [setRef, visible] = useOnScreen({
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.25
+    });
     const dispatch = useDispatch();
     const items = useSelector(({ products }) => products.items);
-    const loadMore = useSelector(({ products }) => products.loadMore);
-    const page = useSelector(({infinityScroll}) => infinityScroll.page);
+    const page = useSelector(({ products }) => products.page);
     const isLoaded = useSelector(({ products }) => products.isLoaded);
     const cartItems = useSelector(({ addToCart }) => addToCart.items);
     const { categoryKey, categoryValue, sortBy } = useSelector(({ filters }) => filters);
 
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
         dispatch(fetchProducts(sortBy, categoryKey, categoryValue, page));
-        return () => window.removeEventListener('scroll', handleScroll);
     },[sortBy, categoryKey, categoryValue, dispatch, page]);
 
-    function handleScroll() {
-        if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
-        if (loadMore !== 0) {
-            dispatch(loadMoreItems(page));
+    useEffect(() => {
+        if (visible) {
+            dispatch(setNewPage(page));
         }
-    }
+    }, [visible]);
 
     const addProductToBasket = (obj) => {
         dispatch(addBasket(obj));
@@ -65,7 +102,7 @@ function Home() {
                             onSelectSortType={onSelectSortType}
                         />
                     </div>
-                    <div className="cards__wrapper">
+                    <div className={`cards__wrapper`}>
                         {
                             isLoaded ?
                                 items.map((obj) => (
@@ -79,6 +116,11 @@ function Home() {
                                     .fill(0)
                                     .map((_, index) => <LoadingItem key={index} />)
 
+                        }
+                    </div>
+                    <div className={`more-loading`} ref={setRef} style={{height: '100px'}}>
+                        {
+                            visible && <p>Loading...</p>
                         }
                     </div>
                 </div>

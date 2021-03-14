@@ -8,6 +8,6 @@ export const  CLEAR_FILTER = "CLEAR_FILTER";
 export const  PLUS_BASKET_ITEM = "PLUS_BASKET_ITEM";
 export const  MINUS_BASKET_ITEM = "MINUS_BASKET_ITEM";
 export const  SET_SORT_BY = "SET_SORT_BY";
-export const  LOAD_MORE_PRODUCTS = "LOAD_MORE_PRODUCTS";
+export const  SET_NEW_PAGE = "SET_NEW_PAGE";
 
 export const BASE_URL = `http://localhost:3005/products`;

@@ -1,11 +1,11 @@
-import React, {memo, useRef, useState} from 'react';
+import React, { memo, useRef, useState } from 'react';
 import FastView from "./FastView";
 import { LazyImage } from "./common/LazyImage";
 import Modal from "./common/Modal";
 import Button from "./common/Button";
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 
-function Card({ id, name, image, price, currency, properties, sizes, votes, moreImage, addBasket, addedCount }) {
+const Card = memo(({ id, name, image, price, currency, properties, sizes, votes, moreImage, addBasket, addedCount }) => {
     const modalRef = useRef();
     const [activeSize, setActiveSize] = useState('');
     const [isSelected, setIsSelected] = useState(false);
@@ -53,7 +53,7 @@ function Card({ id, name, image, price, currency, properties, sizes, votes, more
                         <ShoppingBasketIcon/> Купить {addedCount && <span> ({addedCount})</span>}
                     </Button>
                 </div>
-                <Button onClick={openModal} className={`_fast-view`}>Быстрый просмотр</Button>
+                <Button onClick={openModal} className={`_fast-view`}>Смотреть ещё фото</Button>
             </div>
             <div className="cards-item__bottom">
                 <p>{name} <span className="cards-item__price">{price} {currency}</span></p>
@@ -67,6 +67,6 @@ function Card({ id, name, image, price, currency, properties, sizes, votes, more
             </Modal>
         </div>
     );
-}
+});
 
-export default memo(Card);
+export default Card;
